@@ -1,0 +1,13 @@
+{
+    "recommendations": [
+        "jeff-hykin.better-cpp-syntax",
+        "ms-vscode.cpptools",
+        "twxs.cmake",
+        "ms-vscode.cmake-tools",
+        "cschlosser.doxdocgen",
+        "editorconfig.editorconfig",
+        "zixuanwang.linkerscript",
+        "webfreak.debug",
+        "surajbarkale.ninja"
+    ]
+}
