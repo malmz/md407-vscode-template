@@ -8,10 +8,6 @@ project(
 file(GLOB sources src/*.c)
 add_executable(md407 ${sources})
 
-# Uncomment to enable libstm
-#add_subdirectory(libstm)
-#target_link_libraries(md407 libstm)
-
 target_link_options(md407 PUBLIC -T ${CMAKE_SOURCE_DIR}/md407.ld)
 set_property(TARGET md407 PROPERTY LINK_DEPENDS ${CMAKE_SOURCE_DIR}/md407.ld)
 
