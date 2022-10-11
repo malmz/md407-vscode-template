@@ -1,12 +1,19 @@
 cmake_minimum_required(VERSION 3.22)
 project(
-    md407 
-    VERSION 0.1.0 
-    LANGUAGES C
+  md407 
+  VERSION 0.1.0 
+  LANGUAGES C
 )
 
-# Add c files in the src dir to a executable
-file(GLOB sources src/*.c)
+# Uncomment to add all c files in the src folder
+#file(GLOB sources src/*.c)
+
+# Add source files
+set(sources 
+  src/main.c
+  src/startup.c
+  src/add.c
+)
 add_executable(md407 ${sources})
 
 # ======== NO NEED TO EDIT BELOW THIS LINE ========
