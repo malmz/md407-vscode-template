@@ -1,6 +1,0 @@
-[
-    {
-        "name": "GCC md407 cross",
-        "toolchainFile": "${workspaceFolder}/cmake/toolchains/arm-none-eabi.cmake"
-    }
-]

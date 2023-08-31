@@ -1,7 +1,6 @@
 {
   "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
   "cmake.configureSettings": {
-    "CMAKE_TOOLCHAIN_FILE": "${workspaceRoot}/cmake/toolchains/arm-none-eabi.cmake",
-    "USE_SYSROOT": "ON"
+    "CMAKE_TOOLCHAIN_FILE": "${workspaceRoot}/cmake/toolchains/arm-none-eabi.cmake"
   }
 }
