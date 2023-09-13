@@ -28,5 +28,5 @@ target_include_directories(
   libstm
   PUBLIC
   ${libstm_dir}/STM32F4xx_StdPeriph_Driver/inc
-  ${libstm_dir}/CMSIS/include
+  ${libstm_dir}/CMSIS/Include
 )
