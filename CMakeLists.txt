@@ -5,8 +5,8 @@ project(
   LANGUAGES C
 )
 
-# Uncomment to add all c files in the src folder
-#file(GLOB sources src/*.c)
+# Set to ON to include libstm
+set(enable_libstm OFF)
 
 # Add source files
 set(sources 
@@ -14,9 +14,19 @@ set(sources
   src/startup.c
   src/add.c
 )
+
+# Uncomment to add all c files in the src folder (remove the lines above adding sources first)
+#file(GLOB sources src/*.c)
+
+# TODO: Add posibility to add more executables
 add_executable(md407 ${sources})
 
 # ======== NO NEED TO EDIT BELOW THIS LINE ========
+
+if(enable_libstm EQUAL ON)
+  add_subdirectory(libstm)
+  target_link_libraries(md407 libstm)
+endif()
 
 # Add linker script for md407 memmory layout
 target_link_options(md407 PUBLIC -T ${CMAKE_SOURCE_DIR}/md407.ld)
