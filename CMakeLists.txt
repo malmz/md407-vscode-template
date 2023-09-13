@@ -4,9 +4,10 @@ project(
   VERSION 0.1.0 
   LANGUAGES C
 )
+include(cmake/utils.cmake)
 
-# Set to ON to include libstm
-set(enable_libstm OFF)
+# Uncomment to include libstm
+#add_subdirectory(lib)
 
 # Add source files
 set(sources 
@@ -18,49 +19,5 @@ set(sources
 # Uncomment to add all c files in the src folder (remove the lines above adding sources first)
 #file(GLOB sources src/*.c)
 
-# TODO: Add posibility to add more executables
-add_executable(md407 ${sources})
-
-# ======== NO NEED TO EDIT BELOW THIS LINE ========
-
-if(enable_libstm EQUAL ON)
-  add_subdirectory(libstm)
-  target_link_libraries(md407 libstm)
-endif()
-
-# Add linker script for md407 memmory layout
-target_link_options(md407 PUBLIC -T ${CMAKE_SOURCE_DIR}/md407.ld)
-set_property(TARGET md407 PROPERTY LINK_DEPENDS ${CMAKE_SOURCE_DIR}/md407.ld)
-
-# Enable Link time optimization if supported by the compiler
-include(CheckIPOSupported)
-check_ipo_supported(RESULT result OUTPUT output)
-if(result)
-  set_property(TARGET md407 PROPERTY INTERPROCEDURAL_OPTIMIZATION TRUE)
-else()
-  message(WARNING "IPO is not supported: ${output}")
-endif()
-
-# Generate .s19 file for flashing the device
-add_custom_command(
-    OUTPUT md407.s19
-    DEPENDS md407
-    COMMENT "Generating md407.s19..."
-    COMMAND ${CMAKE_OBJCOPY} -S -O srec md407 ${PROJECT_BINARY_DIR}/md407.s19
-    VERBATIM
-)
-
-# Generate .lst file for inspecting the assembly
-add_custom_command(
-    OUTPUT md407.lst
-    DEPENDS md407
-    COMMENT "Generating md407.lst..."
-    COMMAND ${CMAKE_OBJDUMP} -D -S $<TARGET_FILE:md407> > ${PROJECT_BINARY_DIR}/md407.lst
-    VERBATIM
-)
-
-# Always generate .s19 and .lst files
-add_custom_target(
-    generate_files ALL
-    DEPENDS md407.s19 md407.lst
-)
+# Add an executable target
+add_md407_executable(md407 "${sources}")

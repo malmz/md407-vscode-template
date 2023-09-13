@@ -5,8 +5,9 @@ project(
   LANGUAGES C
 )
 
-set(libstm_dir ${CMAKE_CURRENT_SOURCE_DIR}/STM32F4_lib)
+message(STATUS "Building libstm")
 
+set(libstm_dir ${CMAKE_CURRENT_SOURCE_DIR}/STM32F4_lib)
 set(src_dir ${libstm_dir}/STM32F4xx_StdPeriph_Driver/src)
 
 # Add more files here as needed
