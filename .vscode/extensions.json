@@ -1,11 +1,9 @@
 {
-    "recommendations": [
-        "ms-vscode.cpptools",
-        "twxs.cmake",
-        "ms-vscode.cmake-tools",
-        "cschlosser.doxdocgen",
-        "editorconfig.editorconfig",
-        "zixuanwang.linkerscript",
-        "webfreak.debug"
-    ]
+  "recommendations": [
+    "ms-vscode.cpptools-extension-pack",
+    "cschlosser.doxdocgen",
+    "editorconfig.editorconfig",
+    "zixuanwang.linkerscript",
+    "webfreak.debug"
+  ]
 }
