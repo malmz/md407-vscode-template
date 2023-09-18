@@ -16,8 +16,5 @@ set(sources
   src/add.c
 )
 
-# Uncomment to add all c files in the src folder (remove the lines above adding sources first)
-#file(GLOB sources src/*.c)
-
 # Add an executable target
 add_md407_executable(md407 "${sources}")
