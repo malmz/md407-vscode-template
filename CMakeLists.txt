@@ -16,5 +16,8 @@ set(sources
   src/add.c
 )
 
-# Add an executable target
-add_md407_executable(md407 "${sources}")
+# Create a build target with provided sources
+add_executable(md407 "${sources}")
+
+# Set md407 specific options on target
+target_set_md407(md407)

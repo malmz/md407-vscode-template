@@ -48,6 +48,24 @@ function(add_decompile_files target)
   )
 endfunction()
 
+function(target_set_md407 target)
+  # Link to the libstm library if it is enabled
+  if(TARGET libstm)
+    message(STATUS "Linking ${target} to libstm")
+    target_link_libraries(${target} libstm)
+  endif()
+
+  # Add linker script for md407 memmory layout
+  add_link_script(${target} ${CMAKE_SOURCE_DIR}/md407.ld)
+
+  # Enable Link time optimization if supported by the compiler
+  target_set_lto(${target})
+
+  # Generate .lst and .s19 files
+  add_decompile_files(${target})
+endfunction()
+
+
 function(add_md407_executable target sources)
   # Add the executable
   add_executable(${target} ${sources})
